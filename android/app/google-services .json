@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "198158054410",
+    "project_id": "cvapp-14323",
+    "storage_bucket": "cvapp-14323.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198158054410:android:5abc51a81aa6c5cb389bf3",
+        "android_client_info": {
+          "package_name": "com.example.news_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198158054410-sdh030b8uk5u2eiq3g6e9sp7r57t7aa4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlRioY6L-54sFDk6VfgYsZIGhY8BpmrC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198158054410-sdh030b8uk5u2eiq3g6e9sp7r57t7aa4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
