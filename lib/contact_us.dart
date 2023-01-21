@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 void main() => runApp(const Contact_page());
 
@@ -18,6 +20,8 @@ TextEditingController _emailController = TextEditingController();
 
 class _Contact_pageState extends State<Contact_page> {
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
+  final _number = "917878004286";
+  final _email = "countryvisionnews@gmail.com";
 
   @override
   Widget build(BuildContext context) {
@@ -49,85 +53,94 @@ class _Contact_pageState extends State<Contact_page> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.blueGrey.shade50,
-                      boxShadow: const [
-                        BoxShadow(
-                            color: Colors.grey,
-                            blurRadius: 10,
-                            offset: Offset(0, 3))
-                      ]),
-                  width: 80,
-                  height: 80,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(CupertinoIcons.phone,color: Colors.deepPurple.shade300,),
-                      const SizedBox(height: 10,),
-                      Text(
-                        "Call",
-                        style: GoogleFonts.ubuntu(
-                            color: Colors.deepOrangeAccent,
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                InkWell(
+                  onTap: () async {launchUrlString("tel:$_number");},
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.blueGrey.shade50,
+                        boxShadow: const [
+                          BoxShadow(
+                              color: Colors.grey,
+                              blurRadius: 10,
+                              offset: Offset(0, 3))
+                        ]),
+                    width: 80,
+                    height: 80,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(CupertinoIcons.phone,color: Colors.deepPurple.shade300,),
+                        const SizedBox(height: 10,),
+                        Text(
+                          "Call",
+                          style: GoogleFonts.ubuntu(
+                              color: Colors.deepOrangeAccent,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.blueGrey.shade50,
-                      boxShadow:const [
-                        BoxShadow(
-                            color: Colors.grey,
-                            blurRadius: 10,
-                            offset: Offset(0, 3))
-                      ]),
-                  width: 80,
-                  height: 80,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(CupertinoIcons.mail,color: Colors.deepPurple.shade300,),
-                      const SizedBox(height: 10,),
-                      Text(
-                        "E-mail",
-                        style: GoogleFonts.ubuntu(
-                            color: Colors.deepOrangeAccent,
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                InkWell(
+                  onTap: () async {launchUrlString("mailto:$_email?subject=&body=");},
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.blueGrey.shade50,
+                        boxShadow:const [
+                          BoxShadow(
+                              color: Colors.grey,
+                              blurRadius: 10,
+                              offset: Offset(0, 3))
+                        ]),
+                    width: 80,
+                    height: 80,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(CupertinoIcons.mail,color: Colors.deepPurple.shade300,),
+                        const SizedBox(height: 10,),
+                        Text(
+                          "E-mail",
+                          style: GoogleFonts.ubuntu(
+                              color: Colors.deepOrangeAccent,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.blueGrey.shade50,
-                      boxShadow:const [
-                        BoxShadow(
-                            color: Colors.grey,
-                            blurRadius: 10,
-                            offset: Offset(0, 3))
-                      ]),
-                  width: 80,
-                  height: 80,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(CupertinoIcons.chat_bubble_2,color: Colors.deepPurple.shade300,),
-                      const SizedBox(height: 10,),
-                      Text(
-                        "Chat",
-                        style: GoogleFonts.ubuntu(
-                            color: Colors.deepOrangeAccent,
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                InkWell(
+                  onTap: () async{launchUrlString("sms:$_number");},
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.blueGrey.shade50,
+                        boxShadow:const [
+                          BoxShadow(
+                              color: Colors.grey,
+                              blurRadius: 10,
+                              offset: Offset(0, 3))
+                        ]),
+                    width: 80,
+                    height: 80,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(CupertinoIcons.chat_bubble_2,color: Colors.deepPurple.shade300,),
+                        const SizedBox(height: 10,),
+                        Text(
+                          "Chat",
+                          style: GoogleFonts.ubuntu(
+                              color: Colors.deepOrangeAccent,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -244,14 +257,18 @@ class _Contact_pageState extends State<Contact_page> {
                 InkWell(
                   onTap: () {
                     try{
-                      _firebaseFirestore.collection('messeges').add({
+                      _firebaseFirestore.collection('messages').add({
                         'email' : _emailController.text.trim(),
                         'message' : _messageController.text.trim(),
                         'name' : _nameController.text.trim(),
                       });
-                    }catch(e){print(e);}
-                    const snackBar = SnackBar(content : Text("Message sent"),);
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      const snackBar = SnackBar(content : Text("Message sent"),);
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }catch(e){
+                      const snackBar = SnackBar(content : Text("Message not sent"),);
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      print(e);}
+
                   },
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 8),
