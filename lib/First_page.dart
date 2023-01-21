@@ -37,7 +37,7 @@ class _First_pageState extends State<First_page> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.home),label: "Home"),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.map),label: "City"),
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.money_dollar),label: "Business"),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.globe),label: "World"),
           BottomNavigationBarItem(icon: Icon(Icons.sports_football_outlined),label: "Sports"),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.phone),label: "Contact us"),
