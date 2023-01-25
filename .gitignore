@@ -42,3 +42,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+const String apiKey = "eb96c5fa61324cde9d24619eddefa76d";

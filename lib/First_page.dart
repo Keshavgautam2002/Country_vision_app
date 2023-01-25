@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:news_app/business_screen.dart';
+import 'package:news_app/sports_page.dart';
+import 'package:news_app/world_page.dart';
 import 'Home_page.dart';
 import 'contact_us.dart';
 
@@ -18,10 +21,10 @@ class _First_pageState extends State<First_page> {
   int _currentIndex = 0;
   final screen = [
     const Home_page(),
-    const Home_page(),
-    const Home_page(),
-    const Home_page(),
-    Contact_page(),
+    const Business_page(),
+    const World_page(),
+    const Sports_page(),
+    const Contact_page(),
   ];
   void _onTapped(int index)
   {

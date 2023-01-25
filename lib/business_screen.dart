@@ -13,16 +13,16 @@ import 'Models/NewsTile.dart';
 
 const String apiKey = "eb96c5fa61324cde9d24619eddefa76d";
 
-void main() => runApp(const Home_page());
+void main() => runApp(const Business_page());
 
 // ignore: camel_case_types
-class Home_page extends StatefulWidget {
-  const Home_page({Key? key}) : super(key: key);
+class Business_page extends StatefulWidget {
+  const Business_page({Key? key}) : super(key: key);
   @override
-  State<Home_page> createState() => _Home_pageState();
+  State<Business_page> createState() => _Business_pageState();
 }
 
-class _Home_pageState extends State<Home_page> {
+class _Business_pageState extends State<Business_page> {
   //Variables
   bool isEmpty = true;
 
@@ -30,7 +30,7 @@ class _Home_pageState extends State<Home_page> {
 
   Future<void> getList() async {
     http.Response json = await http.get(Uri.parse(
-        "https://newsapi.org/v2/top-headlines?country=in&apiKey=$apiKey"));
+        "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=$apiKey"));
     Map decodedData = jsonDecode(json.body);
     decodedData['articles']?.forEach((element) {
       if (element['urlToImage'] != null &&
@@ -40,7 +40,7 @@ class _Home_pageState extends State<Home_page> {
           element['content'] != null  &&
           element['url'] != null) {
         HomePageNews news = HomePageNews(
-          url: element['url'],
+            url: element['url'],
             imageUrl: element['urlToImage'],
             title: element['title'],
             author: element['author'],
@@ -131,7 +131,7 @@ class _Home_pageState extends State<Home_page> {
                     shrinkWrap: true,
                     itemCount: list.length,
                     itemBuilder: (context, index) => NewsTile(
-                      url: list[index].url,
+                        url: list[index].url,
                         imageUrl: list[index].imageUrl,
                         title: list[index].title)),
               ),
